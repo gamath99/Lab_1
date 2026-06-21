@@ -10,7 +10,7 @@ import rectangle as r
 
 def capture_positive_number(initial):
     # The while loop will repeat until it capture the correct input value under conditions 
-    While True: 
+    while True:
 
         value = input(initial)
     # Use of the method .isdigit to only the digit and ignore the other value 
@@ -68,7 +68,7 @@ while selection != 5:
         height = capture_positive_number("Enter the height of the rectangle: ")
         #call the alias of the function in rectangle file to evaluate the perimeter of the rectangle 
         perimeter = r.calc_perimeter(width,height)
-        print(f"\nThe perimeter of the rectangle is {perimeter;.3f}.")
+        print(f"\nThe perimeter of the rectangle is {perimeter:.3f}.")
 
         input("\nPress Enter to continue...")
     elif selection.isdigit and selection ==5: 
