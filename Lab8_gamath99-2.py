@@ -1,3 +1,8 @@
+"""Geometry Calculator
+Gama MATHURIN
+The program is created to return the area and the circumference of a circle, also to return the are and the perimeter of a rectangle, by using aliases from two other file. 
+06/21/2026"""
+
 #In this case modules should be imported with aliases
 #Due to files circle.py and rectangle.py containing a similar function name which is calc_area()
 #without the aliases, python would not recognize which calc_area function to execute. 
@@ -11,20 +16,18 @@ import rectangle as r
 def capture_positive_number(initial):
     # The while loop will repeat until it capture the correct input value under conditions 
     while True:
+     #insert a try statement in while loop to keep asking for the value in the range of the menu when it fails    
         try:
             
             value = float(input(initial))
-    # Use of the method .isdigit to only the digit and ignore the other value 
+    # Use of a condition to filter the value 
             if value <=0: 
                 print("Error: Please enter a positive number.")
             else:
-                return value          
-        except Exception as e:
-            print("Exception:", type(e).__name__)
-            print("Message:", e)
+                return value                 
 
-       #except ValueError:
-           #print("Error : Please enter a valid number.")
+        except ValueError:
+            print("Error : Please enter a valid number.")
 
 # create a while loop to capture the user input to evaluate each statement in return the result. 
 
@@ -42,8 +45,7 @@ while selection != 5:
 
     try:
        #selection =int(input("\nEnter your choice (1-5): "))
-       choice = input("\nEnter your choice(1-5): ")
-       print("you entered:", repr(choice))
+       choice = input("\nEnter your choice(1-5): ")       
        selection =int(choice)
     #create a filter to select the exact value in the conditions 
        if  selection == 1:
@@ -84,11 +86,9 @@ while selection != 5:
        else:
             print("\nError: Please enter a number between 1 and 5.")
     
-    # Request a new value if it is not a digit 
-    except Exception as e:
-        print("Error found:", e)
-   #except ValueError:
-    #   print("\nError: Please enter a valid menu choice.") 
+    # Request a new value if it is not a digit     
+    except ValueError:
+        print("\nError: Please enter a valid menu choice.") 
           
     
 
