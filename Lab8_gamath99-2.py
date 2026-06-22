@@ -18,9 +18,13 @@ def capture_positive_number(initial):
             if value <=0: 
                 print("Error: Please enter a positive number.")
             else:
-                return value                
-        except ValueError:
-            print("Error : Please enter a valid number.")
+                return value          
+        except Exception as e:
+            print("Exception:", type(e).__name__)
+            print("Message:", e)
+
+       #except ValueError:
+           #print("Error : Please enter a valid number.")
 
 # create a while loop to capture the user input to evaluate each statement in return the result. 
 
@@ -37,9 +41,12 @@ while selection != 5:
     print("5. Exit")
 
     try:
-        selection =int(input("\nEnter your choice (1-5): "))
+       #selection =int(input("\nEnter your choice (1-5): "))
+       choice = input("\nEnter your choice(1-5): ")
+       print("you entered:", repr(choice))
+       selection =int(choice)
     #create a filter to select the exact value in the conditions 
-        if  selection == 1:
+       if  selection == 1:
             radius = capture_positive_number("\nEnter the radius of the circle: ")
             #call the alias of the function in circle file to evaluate the area of the circle 
             area = c.calc_area(radius)
@@ -47,14 +54,14 @@ while selection != 5:
             print(f"\nThe area of the circle is {area:.3f}.")
         
             input("\nPress Enter to continue...")
-        elif selection == 2:
+       elif selection == 2:
             radius = capture_positive_number("\nEnter the radius of the circle: ")
             #call the alias of the function in circle file to evaluate the circumference of the circle 
             circumference = c.calc_circumference(radius)
 
             print(f"\nThe circumference of the circle is {circumference:.3f}.")
             input("\nPress Enter to continue...")
-        elif selection == 3:
+       elif selection == 3:
             width = capture_positive_number("\nEnter the width of the rectangle: ") 
 
             height = capture_positive_number("Enter the height of the rectangle: ")
@@ -64,29 +71,25 @@ while selection != 5:
             print(f"\nThe area of the rectangle is {area:.3f}")
 
             input("\nPress Enter to continue...")
-        elif selection == 4:
+       elif selection == 4:
             width = capture_positive_number("\nEnter the width of the rectangle: ")
             height = capture_positive_number("Enter the height of the rectangle: ")
             #call the alias of the function in rectangle file to evaluate the perimeter of the rectangle 
-            perimeter = r.calc_perimeter(width,height)
+            perimeter = r.calc_perimeter(width, height)
             print(f"\nThe perimeter of the rectangle is {perimeter:.3f}.")
 
             input("\nPress Enter to continue...")
-        elif selection == 5:
+       elif selection == 5:
             print("\nGoodbye!")
-        else:
+       else:
             print("\nError: Please enter a number between 1 and 5.")
     
     # Request a new value if it is not a digit 
-    except ValueError:
-        print("\nError: Please enter a valid menu choice.")
-
-
-    
-    
-    
-
-              
+    except Exception as e:
+        print("Error found:", e)
+   #except ValueError:
+    #   print("\nError: Please enter a valid menu choice.") 
+          
     
 
 
